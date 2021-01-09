@@ -1,0 +1,10 @@
+<h1>Makeup Products</h1>
+
+<a href="makeup/review">Leave a Review</a>
+
+<% @makeups.each do |makeups|%>
+    <h3><a href="/makeup/<%= makeups.id %>"><%= makeups.name%></a></h3>
+    <h4><%= makeups.price%></h4>
+    <p><%= makeups.model%> </p>
+    <img src="<%= makeups.image %>" alt="makeup">
+<% end %> 

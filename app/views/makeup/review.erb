@@ -1,0 +1,13 @@
+<h1>Create a Review</h1>
+<p><%= @error %></p>
+<form action="/review" method="post">
+    <label>Name</label>
+    <input type="text" name="name">
+    <label>Rate(Choose number between 1 to 5)</label>
+    <input type="text" name="rate">
+    <label>review</label>  
+    <textarea name="review"></textarea>
+    <label>Image URL</label>
+    <input type="text" name="image">
+    <button type="submit">Add Review</button>
+</form>
