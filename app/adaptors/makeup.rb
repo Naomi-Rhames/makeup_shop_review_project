@@ -6,7 +6,7 @@ module C_Makeup
         def fectch_makeup
             makeup = JSON.parse(RestClient.get(BASE_URL))
             makeup.each do |makeup|
-                @makeup = Makeup.new(name: makeup["name"], price: makeup["price"], image: makeup["image_link"])
+                @makeup = Makeup.new(name: makeup["name"], price: makeup["price"], colors: makeup["colour_name"], image: makeup["image_link"], model: makeup["description"])
   
                 @makeup.save 
             end

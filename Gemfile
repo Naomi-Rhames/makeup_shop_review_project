@@ -12,7 +12,7 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'rest-client'
-
+gem 'sass'
 group :test do
   gem 'rspec'
   gem 'capybara'

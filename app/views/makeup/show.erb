@@ -1,1 +1,18 @@
 <h1><%= @makeup.name%></h1>
+
+
+<a href="/review/<%= @makeup.id%>">Leave a Review</a>
+
+<img src="<%= @makeup.image %>" alt="makeup">
+   
+
+<h4><%= @makeup.price%></h4>
+<h3><%= @makeup.model%></h3>
+<% @makeup.reviews.each do |r|  %>
+<h2><%= r.name%></h2>
+<h4><%= r.rate%></h4>
+<h5><%= r.review%></h5>
+<% if r.user_id == session[:user_id]%>
+<a href="/review/<%= r.id %>/edit">Edit Review</a>
+    <%end%>
+<%end%>

@@ -7,13 +7,31 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>MakeupShopReviewProject</title>
+    <title>Maybelline Makeup</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+    <div class="title"><h1>Maybelline Makeup</h1></div>
+    <div>
+     <% if logged_in? %>
+      <div><a href="/logout">Logout</a></div>
+     <div><a href="/makeup">Makeup Products</a></div>
+      
+      <%else%>
+      
+       <div><a href="/signup">Signup</a></div>
+       <div><a href="/login">Login</a></div>
+       <%end%>
+        <div><a href="/">Home</a></div>
+
+       </div>
+
+      
+    </div>
+
     <div class="wrapper">
 
         <%= yield %>

@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210109012247) do
+ActiveRecord::Schema.define(version: 20210117193152) do
 
   create_table "makeups", force: :cascade do |t|
-    t.string  "name"
-    t.string  "colors"
-    t.integer "price"
-    t.string  "model"
-    t.string  "image"
+    t.string "name"
+    t.string "colors"
+    t.string "price"
+    t.string "model"
+    t.string "image"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string  "image",   default: "https://pbs.twimg.com/profile_images/1146063208760795137/LZva9jZf_400x400.jpg"
+    t.integer "makeup_id"
+    t.string  "image",     default: "https://pbs.twimg.com/profile_images/1146063208760795137/LZva9jZf_400x400.jpg"
     t.string  "name"
     t.integer "rate"
     t.string  "review"
@@ -31,7 +32,7 @@ ActiveRecord::Schema.define(version: 20210109012247) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
   end
 
 end

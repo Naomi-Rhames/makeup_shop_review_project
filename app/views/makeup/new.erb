@@ -1,6 +1,7 @@
 <h1>Create a Review</h1>
 <p><%= @error %></p>
 <form action="/review" method="post">
+<input type=hidden name="makeup_id" value=<%= @makeup.id%></label>
     <label>Name</label>
     <input type="text" name="name">
     <label>Rate(Choose number between 1 to 5)</label>

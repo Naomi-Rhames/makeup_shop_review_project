@@ -1,3 +1,6 @@
 class User < ActiveRecord::Base
-    has_many :reviews
+    has_secure_password 
+    validates :username, :password, presence: true
+    validates :username, uniqueness: true
+  has_many :reviews
 end

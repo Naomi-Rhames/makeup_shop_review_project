@@ -1,0 +1,11 @@
+<h1>Welcome New User!</h1>
+<h3>Please Signup Here.</h3>
+<p><%= @error %></p> 
+ 
+ <form action="/signup" method="post">
+    <label>Create Username:</label>
+    <input type="text" name="username">
+    <label>Create Password:</label>
+    <input type="password" name="password">
+    <input type="submit" value="Sign Up">
+</form>
