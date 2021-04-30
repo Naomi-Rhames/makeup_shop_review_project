@@ -5,6 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 require 'sass/plugin/rack'
 
+
 use Sass::Plugin::Rack
 use Rack::MethodOverride
 use SessionsController

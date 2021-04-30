@@ -1,12 +1,14 @@
-<h1>Edit Review for <%=@review.makeup.name%></h1>
+<h1>Edit Review for <%=@review.makeup.name %></h1>
+<hr>
 <p><%= @error %></p>
 <form action="/review/<%=@review.id%>" method="post">
     <input type="hidden" name="_method" value="patch">
-    <label>Name</label>
+    <label>Review Title</label>
     <input type="text" name="review[name]" value="<%= @review.makeup.name %>">
-    <label>Rate(Choose number between 1 to 5)</label>
+    <label>Comfort</label>
     <input type="text" name="review[rate]" >
-    <label>review</label>  
+
+    <label>Review</label>  
     <textarea name="review[review]" value="@makeup.review%>"></textarea>
     <label>Image URL</label>
     <input type="text" name="review[image] " value="<%= @review.makeup.image%>">
@@ -18,3 +20,4 @@
      <input type="hidden" name="_method" value="delete">
       <button type="submit">Delete Review</button>
     </form>
+ 

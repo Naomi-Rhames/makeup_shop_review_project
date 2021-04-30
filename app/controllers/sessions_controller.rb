@@ -15,7 +15,7 @@ post '/login' do
             session[:user_id] = user.id
             redirect '/makeup'
         else
-            @error = "Account not found"
+            @error = "Account not found"   
             erb :'users/login'
         end  
     end
@@ -25,6 +25,7 @@ post '/login' do
         session.clear
         redirect '/'
     end
+
 
 
 end

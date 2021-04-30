@@ -9,14 +9,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  # def Makeup_name
-  #   params.require(:makeup).permit(:name, :search)
-  # end
-
-  # def something
-  #   redirect_to makeup(current_userr) unless user_exist?
-  #   @name = Makeup.search(params[:search])
-  #   end
+  
 
   not_found do
     status 404

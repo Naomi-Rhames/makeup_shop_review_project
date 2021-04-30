@@ -1,11 +1,13 @@
-
-<h1>Makeup Products</h1>
-
-<p>Thank you for purchasing Maybelline Products, Please click the product that you purchased from and Leave a Review!</p>
-
-<% @makeups.each do |makeups|%>
-    <h3><a href="/makeup/<%= makeups.id %>"><%= makeups.name%></a></h3>
-    <h4><%= makeups.price%></h4>
-    <p><%= makeups.model%> </p>
-    <img src="<%= makeups.image %>" alt="makeup">
-<% end %> 
+<div class="makeup-container">
+    <h1>Makeup Products💄</h1>
+   
+    <p>Thank you for purchasing Maybelline Products, Please click the product that you purchased from and Leave a Review!</p>
+    <hr>
+            <% @makeups.each do |makeups|%>
+            <h3><a href="/makeup/<%= makeups.id %>"><%= makeups.name%></a></h3>
+            <h4><%= makeups.price%></h4>
+            <img src="<%= makeups.image %>" alt="makeup">
+        
+   
+    <% end %> 
+</div>

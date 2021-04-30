@@ -1,7 +1,7 @@
 class ReviewController < ApplicationController
 
     #Create
-
+ 
  
     # New 
    #Make a post request
@@ -27,7 +27,33 @@ class ReviewController < ApplicationController
             erb :'makeup/review' 
         end
     end
-  
+
+    get '/search' do
+        if logged_in?
+          @makeups = Makeup.all
+            if params[:search]
+                  @makeups = Makeup.search(params[:search])
+            else
+             @makeups = Makeup.all
+             end
+            erb :'makeup/search'
+         else
+            @error = "Sorry Can't find what your looking for..."
+         end
+    end
+
+ 
+    post '/search' do
+        #  binding.pry
+        if params[:search]
+          @makeups = Makeup.find_by(name: params[:search])
+          erb :'makeup/search'
+        else
+          @makeups = Makeup.all
+          erb :'makeup/search'
+        end
+        erb :'makeup/search'
+      end
     #Read
 
     #Index 
@@ -49,7 +75,7 @@ class ReviewController < ApplicationController
    
     get '/makeup/:id' do 
         if logged_in?
-            @makeup = Makeup.find(params[:id])
+            @makeup = Makeup.find_by(params[:id])
             @makeup_reviews = Review.where(makeup_id: @makeup.id)
             erb :'makeup/show'
         else
@@ -73,7 +99,7 @@ class ReviewController < ApplicationController
     #Update
     #Make a patch request to '/review/:id'
       patch '/review/:id' do
-        @review = Review.find(params[:id])
+        @review = Review.find_by(params[:id])
         if !params["review"]["name"].empty? && !params["review"]["review"].empty? && params["review"]["rate"] !~ /\D/
         @review.update(params["review"])
         redirect "/makeup/#{params[:id]}"
@@ -88,7 +114,7 @@ class ReviewController < ApplicationController
 
     # make a delete request 'review/:id
     delete '/review/:id' do 
-        @review = Review.find(params[:id])
+        @review = Review.find_by(params[:id])
         @review.destroy
         redirect '/makeup'
     end

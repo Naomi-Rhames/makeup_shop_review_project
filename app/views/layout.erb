@@ -6,41 +6,29 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-
     <title>Maybelline Makeup</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="title"><h1>Maybelline Makeup</h1></div>
-    <div>
+    <div class="title"></div>
      <% if logged_in? %>
-      <div><a href="/logout">Logout</a></div>
-     <div><a href="/makeup">Makeup Products</a></div>
-      
+     <div class="header">
+      <a href="/logout">Logout</a>
+      <a href="/makeup">MakeupProducts</a>
+      <a href="/search">Search</a>
       <%else%>
-      
-       <div><a href="/signup">Signup</a></div>
-       <div><a href="/login">Login</a></div>
+       <a href="/signup">Signup</a>
+       <a href="/login">Login</a>
        <%end%>
-        <div><a href="/">Home</a></div>
-
-       </div>
-
-      
+        <a href="/">Home</a>
     </div>
-
     <div class="wrapper">
-
         <%= yield %>
-
       <footer class="branding">
         <small>&copy; 2021 <strong>MakeupShopReviewProject</strong></small>
       </footer>
     </div>
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>

@@ -2,11 +2,11 @@
 <p><%= @error %></p>
 <form action="/review" method="post">
 <input type=hidden name="makeup_id" value=<%= @makeup.id%></label>
-    <label>Name</label>
+    <label>Review Title</label>
     <input type="text" name="name">
-    <label>Rate(Choose number between 1 to 5)</label>
+    <label>Comfort</label>
     <input type="text" name="rate">
-    <label>review</label>  
+    <label>Review</label>  
     <textarea name="review"></textarea>
     <label>Image URL</label>
     <input type="text" name="image">

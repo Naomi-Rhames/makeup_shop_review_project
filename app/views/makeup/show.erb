@@ -8,11 +8,18 @@
 
 <h4><%= @makeup.price%></h4>
 <h3><%= @makeup.model%></h3>
+
+
+
+<h3>Written Reviews:</h3>
+<hr>
 <% @makeup.reviews.each do |r|  %>
-<h2><%= r.name%></h2>
+<h4><%= r.name%></h4>
 <h4><%= r.rate%></h4>
-<h5><%= r.review%></h5>
+<h3><%= r.review%></h3>
 <% if r.user_id == session[:user_id]%>
 <a href="/review/<%= r.id %>/edit">Edit Review</a>
+<hr>
     <%end%>
 <%end%>
+
