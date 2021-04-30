@@ -43,17 +43,17 @@ class ReviewController < ApplicationController
     end
 
  
-    post '/search' do
-        #  binding.pry
-        if params[:search]
-          @makeups = Makeup.find_by(name: params[:search])
-          erb :'makeup/search'
-        else
-          @makeups = Makeup.all
-          erb :'makeup/search'
-        end
-        erb :'makeup/search'
-      end
+        post '/search' do
+            if !params[:search].empty? #! Changed to .empty? rather than a presence. Empty string = true.
+              @makeups = []
+              Makeup.all.each { |m| @makeups << m if m.name.downcase.include?(params[:search].downcase) } #! Shovels into @makeups array if the string contains the value.
+              erb :'makeup/search'
+            else
+              @makeups = Makeup.all
+              erb :'makeup/search'
+            end
+            erb :'makeup/search'
+          end
     #Read
 
     #Index 
