@@ -30,15 +30,9 @@ class ReviewController < ApplicationController
 
     get '/search' do
         if logged_in?
-          @makeups = Makeup.all
-            if params[:search]
-                  @makeups = Makeup.search(params[:search])
-            else
-             @makeups = Makeup.all
-             end
             erb :'makeup/search'
          else
-            @error = "Sorry Can't find what your looking for..."
+          redirect '/login'
          end
     end
 
