@@ -14,9 +14,9 @@
 <h3>Written Reviews:</h3>
 <hr>
 <% @makeup.reviews.each do |r|  %>
-<h4><%= r.name%></h4>
-<h4><%= r.rate%></h4>
-<h3><%= r.review%></h3>
+<h5>Review Title: <%= r.name%></h5>
+<h5>Comfort: <%= r.rate%></h5>
+<h5><%= r.review%></h5>
 <% if r.user_id == session[:user_id]%>
 <a href="/review/<%= r.id %>/edit">Edit Review</a>
 <p>Posted by: <%=r.user.username%>
