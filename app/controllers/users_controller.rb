@@ -17,6 +17,4 @@
         erb :'/users/signup'
        end
     end
-    # users can delete there account..
-
  end

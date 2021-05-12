@@ -1,5 +1,7 @@
 <h1>Create a Review</h1>
+<hr>
 <p><%= @error %></p>
+<p>The comfort level is from 1 - 5 ( 1 is being the lowest and 5 is being the highest)</p>
 <form action="/review" method="post">
 <input type=hidden name="makeup_id" value=<%= @makeup.id%></label>
     <label>Review Title</label>
@@ -8,7 +10,5 @@
     <input type="text" name="rate">
     <label>Review</label>  
     <textarea name="review"></textarea>
-    <label>Image URL</label>
-    <input type="text" name="image">
     <button type="submit">Add Review</button>
 </form>

@@ -1,6 +1,7 @@
 <h1>Edit Review for <%=@review.makeup.name %></h1>
 <hr>
 <p><%= @error %></p>
+<p>The comfort level is from 1 - 5 ( 1 is being the lowest and 5 is being the highest)</p>
 <form action="/review/<%=@review.id%>" method="post">
     <input type="hidden" name="_method" value="patch">
     <label>Review Title</label>
@@ -10,8 +11,6 @@
 
     <label>Review</label>  
     <textarea name="review[review]" value="@makeup.review%>"></textarea>
-    <label>Image URL</label>
-    <input type="text" name="review[image] " value="<%= @review.makeup.image%>">
   <button type="submit">Edit Review</button> 
 </form>
  
