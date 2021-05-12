@@ -19,6 +19,7 @@
 <h3><%= r.review%></h3>
 <% if r.user_id == session[:user_id]%>
 <a href="/review/<%= r.id %>/edit">Edit Review</a>
+<p>Posted by: <%=r.user.username%>
 <hr>
     <%end%>
 <%end%>
