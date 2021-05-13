@@ -23,8 +23,9 @@ class ReviewController < ApplicationController
             @review.save
           redirect '/makeup'
         else
+            @makeup = Makeup.find(params[:makeup_id])
             @error = "Data invalid. Please try agian"
-            erb :'makeup/review' 
+            erb :'makeup/new' 
         end
     end
 
