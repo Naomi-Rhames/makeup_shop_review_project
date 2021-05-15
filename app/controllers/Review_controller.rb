@@ -70,7 +70,8 @@ class ReviewController < ApplicationController
    
     get '/makeup/:id' do 
         if logged_in?
-            @makeup = Makeup.find_by(params[:id])
+            # binding.pry
+            @makeup = Makeup.find_by_id(params[:id])
             @makeup_reviews = Review.where(makeup_id: @makeup.id)
             erb :'makeup/show'
         else
@@ -113,7 +114,5 @@ class ReviewController < ApplicationController
         @review.destroy
         redirect '/makeup'
     end
-
-
 
 end 
