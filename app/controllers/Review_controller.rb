@@ -114,5 +114,5 @@ class ReviewController < ApplicationController
         @review.destroy
         redirect '/makeup'
     end
-
+    
 end 
