@@ -4,7 +4,7 @@ class ReviewController < ApplicationController
  
  
     # New 
-   #Make a post request
+   #Make a post request 
    get '/review/:id' do 
     if logged_in?
         @makeup = Makeup.find(params[:id])
@@ -70,7 +70,7 @@ class ReviewController < ApplicationController
    
     get '/makeup/:id' do 
         if logged_in?
-            # binding.pry
+            #  binding.pry
             @makeup = Makeup.find_by_id(params[:id])
             @makeup_reviews = Review.where(makeup_id: @makeup.id)
             erb :'makeup/show'
@@ -98,7 +98,7 @@ class ReviewController < ApplicationController
         @review = Review.find_by(params[:id])
         if !params["review"]["name"].empty? && !params["review"]["review"].empty? && params["review"]["rate"] !~ /\D/
         @review.update(params["review"])
-        redirect "/makeup/#{params[:id]}"
+        redirect "/makeup/#{@review.makeup_id}"
       else
               @error = "Data invalid. Please try agian"  
               erb :'makeup/edit' 
