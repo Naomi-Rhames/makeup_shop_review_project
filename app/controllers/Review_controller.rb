@@ -95,7 +95,7 @@ class ReviewController < ApplicationController
     #Update
     #Make a patch request to '/review/:id'
       patch '/review/:id' do
-        @review = Review.find_by(params[:id])
+        @review = Review.find_by_id(params[:id])
         if !params["review"]["name"].empty? && !params["review"]["review"].empty? && params["review"]["rate"] !~ /\D/
         @review.update(params["review"])
         redirect "/makeup/#{@review.makeup_id}"
