@@ -110,7 +110,7 @@ class ReviewController < ApplicationController
 
     # make a delete request 'review/:id
     delete '/review/:id' do 
-        @review = Review.find_by(params[:id])
+        @review = Review.find_by_id(params[:id])
         @review.destroy
         redirect '/makeup'
     end
