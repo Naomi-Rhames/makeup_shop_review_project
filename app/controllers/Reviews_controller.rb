@@ -1,37 +1,37 @@
-class ReviewController < ApplicationController
+class ReviewsController < ApplicationController
 
     #Create
  
  
     # New 
    #Make a post request 
-   get '/review/:id' do 
+   get '/makeups/:makeup_id/reviews/new' do 
     if logged_in?
-        @makeup = Makeup.find(params[:id])
-        erb :'makeup/new'
+        @makeup = Makeup.find(params[:makeup_id])
+        erb :'makeups/new'
     else
         redirect '/login'
          end
     end
+
     #Create
     # make a review request to '/makeup'
-    post '/review' do
-        filltered_params = params.reject{|key, value| key == "image" && value.empty?}
+    post '/makeups/:makeup_id/reviews' do
        @review = Review.new(params)
        @review.user_id = current_user.id
        if !@review.name.empty? && !@review.review.empty?
             @review.save
-          redirect '/makeup'
+          redirect '/makeups'
         else
             @makeup = Makeup.find(params[:makeup_id])
             @error = "Data invalid. Please try agian"
-            erb :'makeup/new' 
+            erb :'makeups/new' 
         end
     end
 
     get '/search' do
         if logged_in?
-            erb :'makeup/search'
+            erb :'makeups/search'
          else
           redirect '/login'
          end
@@ -42,22 +42,22 @@ class ReviewController < ApplicationController
             if !params[:search].empty? #! Changed to .empty? rather than a presence. Empty string = true.
               @makeups = []
               Makeup.all.each { |m| @makeups << m if m.name.downcase.include?(params[:search].downcase) } #! Shovels into @makeups array if the string contains the value.
-              erb :'makeup/search'
+              erb :'makeups/search'
             else
               @makeups = Makeup.all
-              erb :'makeup/search'
+              erb :'makeups/search'
             end
-            erb :'makeup/search'
+            erb :'makeups/search'
           end
     #Read
 
     #Index 
-    # Make a get request to '/makeup'
+    # Make a get request to '/makeups'
 
-    get '/makeup' do 
+    get '/makeups' do 
       if logged_in?
         @makeups = Makeup.all
-        erb :'makeup/index'
+        erb :'makeups/index'
         else
             redirect '/login'
         end
@@ -68,12 +68,12 @@ class ReviewController < ApplicationController
     #Make a get request to get '/Makeup/:id'
    
    
-    get '/makeup/:id' do 
+    get '/makeups/:makeup_id/reviews/:id' do 
         if logged_in?
             #  binding.pry
-            @makeup = Makeup.find_by_id(params[:id])
-            @makeup_reviews = Review.where(makeup_id: @makeup.id)
-            erb :'makeup/show'
+            @makeup = Makeup.find_by_id(params[:makeup_id])
+          @makeup_reviews = Review.where(makeup_id: @makeup.id)
+            erb :'makeups/show'
         else
             redirect '/login'
         end
@@ -83,10 +83,10 @@ class ReviewController < ApplicationController
 
     #Edit
     #Make a get request to '/review/:id/edit'
-    get '/review/:id/edit' do
+    get '/makeups/:makeup_id/reviews/:id/edit' do
         if logged_in?
-        @review = Review.find(params[:id])
-        erb :'/makeup/edit'
+        @review = Review.find_by_id(params[:id])
+        erb :'/makeups/edit'
         else
             redirect '/login'
         end
@@ -94,14 +94,14 @@ class ReviewController < ApplicationController
 
     #Update
     #Make a patch request to '/review/:id'
-      patch '/review/:id' do
+      patch '/makeups/:makeup_id/reviews/:id' do
         @review = Review.find_by_id(params[:id])
         if !params["review"]["name"].empty? && !params["review"]["review"].empty? && params["review"]["rate"] !~ /\D/
         @review.update(params["review"])
-        redirect "/makeup/#{@review.makeup_id}"
+        redirect "/makeups/#{@review.makeup_id}"
       else
               @error = "Data invalid. Please try agian"  
-              erb :'makeup/edit' 
+              erb :'makeups/edit' 
                 end
         end
 
@@ -109,10 +109,10 @@ class ReviewController < ApplicationController
     #Destroy 
 
     # make a delete request 'review/:id
-    delete '/review/:id' do 
+    delete '/makeups/:makeup_id/reviews/:id' do 
         @review = Review.find_by_id(params[:id])
         @review.destroy
-        redirect '/makeup'
+        redirect '/makeups'
     end
     
 end 

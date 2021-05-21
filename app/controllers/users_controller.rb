@@ -11,7 +11,7 @@
              user = User.new(params)
             if user.save
                 session[:user_id] = user.id
-                redirect '/makeup'
+                redirect '/makeups'
             else
                 @error = "Invalid credentials"
                 erb :'/users/signup'

@@ -1,8 +1,8 @@
-<h1><i>Edit Review for <%=@review.makeup.name %></i></h1>
+<h1><i>Edit Review for <%= @review.makeup.name %></i></h1>
 <hr>
 <p><%= @error %></p>
 <p><i>The comfort level is from 1 - 5 ( 1 is being the lowest and 5 is being the highest)</p>
-<form action="/review/<%=@review.id%>" method="post">
+<form action="/makeups/<%=@review.makeup_id%>/reviews/<%= @review.id%>/edit" method="post">
     <input type="hidden" name="_method" value="patch">
     <label>Review Title</label>
     <input type="text" name="review[name]" value="<%= @review.makeup.name %>">
@@ -15,7 +15,7 @@
 </form>
  
  
- <form action="/review/<%= @review.id%>" method="post"> 
+ <form action="/makeups/<%=@review.makeup_id%>/reviews/<%= @review.id%>" method="post"> 
      <input type="hidden" name="_method" value="delete">
       <button type="submit">Delete Review</button>
     </form>

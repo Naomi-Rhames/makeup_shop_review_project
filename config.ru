@@ -10,7 +10,7 @@ use Sass::Plugin::Rack
 use Rack::MethodOverride
 use SessionsController
 use UsersController
-use ReviewController
+use ReviewsController
 run ApplicationController  
 
 

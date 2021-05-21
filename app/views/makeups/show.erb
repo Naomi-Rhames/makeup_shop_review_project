@@ -1,7 +1,7 @@
 <h1><i><%= @makeup.name%></i></h1>
 
 
-<a href="/review/<%= @makeup.id%>">Leave a Review</a>
+<a href="/makeups/<%= @makeup.id%>/reviews/new">Leave a Review</a>
 
 <img src="<%= @makeup.image %>" alt="makeup">
    
@@ -20,7 +20,7 @@
 <h5>Comfort: <%= r.rate%></h5>
 <h5><%= r.review%></h5>
 <% if r.user_id == session[:user_id]%>
-<a href="/review/<%= r.id %>/edit">Edit Review</a>
+<a href="/makeups/<%=r.makeup_id%>/reviews/<%=r.id %>/edit">Edit Review</a>
 <p><i>Posted by: <%=r.user.username%>
     <%end%>
 <%end%>
