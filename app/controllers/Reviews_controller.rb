@@ -68,7 +68,7 @@ class ReviewsController < ApplicationController
     #Make a get request to get '/Makeup/:id'
    
    
-    get '/makeups/:makeup_id/reviews/:id' do 
+     get '/makeups/:makeup_id/reviews/:id' do 
         if logged_in?
             #  binding.pry
             @makeup = Makeup.find_by_id(params[:makeup_id])
@@ -87,6 +87,7 @@ class ReviewsController < ApplicationController
         if logged_in?
         @review = Review.find_by_id(params[:id])
         erb :'/makeups/edit'
+    
         else
             redirect '/login'
         end

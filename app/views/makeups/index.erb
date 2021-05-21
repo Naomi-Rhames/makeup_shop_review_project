@@ -3,10 +3,10 @@
    
     <p><i>Thank you for purchasing Maybelline Products, Please click the product that you purchased from and Leave a Review!</p>
     <hr>
-            <% @makeups.each do |makeups|%>
-            <h3><a href="/makeups/<%= makeups.id %>"><%= makeups.name%></a></h3>
-            <h4><%= makeups.price%></h4>
-            <img src="<%= makeups.image %>" alt="makeup">
+            <% @makeups.each do |makeup|%>
+            <h3><a href="/makeups/<%= makeup.id %>/reviews/:id"><%= makeup.name%></a></h3>
+            <h4><%= makeup.price%></h4>
+            <img src="<%= makeup.image %>" alt="makeup">
         
    
     <% end %> 

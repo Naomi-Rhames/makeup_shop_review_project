@@ -9,7 +9,7 @@
 
 <% if @makeups.present? %>
   <% @makeups.each do |makeup| %>
-    <p><a href="/makeup/<%= makeup.id %>"><%= makeup.name%></a></p>
+    <p><a href="/makeups/<%= makeup.id %>/reviews/:id"><%= makeup.name%></a></p>
   <%end%>
 <% else %>
   <p><i>There are no Makeups containing the term(s) <%= params[:search] %>.</p>
