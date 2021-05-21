@@ -49,35 +49,7 @@ class ReviewsController < ApplicationController
             end
             erb :'makeups/search'
           end
-    #Read
-
-    #Index 
-    # Make a get request to '/makeups'
-
-    get '/makeups' do 
-      if logged_in?
-        @makeups = Makeup.all
-        erb :'makeups/index'
-        else
-            redirect '/login'
-        end
-    end
-
-
-    #Show
-    #Make a get request to get '/Makeup/:id'
-   
-   
-     get '/makeups/:makeup_id/reviews/:id' do 
-        if logged_in?
-            #  binding.pry
-            @makeup = Makeup.find_by_id(params[:makeup_id])
-          @makeup_reviews = Review.where(makeup_id: @makeup.id)
-            erb :'makeups/show'
-        else
-            redirect '/login'
-        end
-    end
+    
  
     #Update
 

@@ -8,6 +8,7 @@ require 'sass/plugin/rack'
 
 use Sass::Plugin::Rack
 use Rack::MethodOverride
+use MakeupsController
 use SessionsController
 use UsersController
 use ReviewsController
