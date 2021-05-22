@@ -71,7 +71,7 @@ class ReviewsController < ApplicationController
         @review = Review.find_by_id(params[:id])
         if !params["review"]["name"].empty? && !params["review"]["review"].empty? && params["review"]["rate"] !~ /\D/
         @review.update(params["review"])
-        redirect "/makeups/#{@review.makeup_id}/reviews/#{@review.user_id}"
+        redirect "/makeups/#{@review.makeup_id}"
       else
               @error = "Data invalid. Please try agian"  
               erb :'makeups/edit' 

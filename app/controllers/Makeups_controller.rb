@@ -21,7 +21,7 @@ class MakeupsController < ApplicationController
         if logged_in?
             #  binding.pry
             @makeup = Makeup.find_by_id(params[:makeup_id])
-        #   @makeup_reviews = Review.where(makeup_id: @makeup.id)
+           @makeup_reviews = Review.where(makeup_id: @makeup.id)
             erb :'makeups/show'
         else
             redirect '/login'
