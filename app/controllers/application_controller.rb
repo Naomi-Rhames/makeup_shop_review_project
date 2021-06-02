@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
   
 
   not_found do
-    status 404
+    status 404 
   end
 
   get "/" do

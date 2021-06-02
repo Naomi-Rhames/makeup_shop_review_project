@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
        @review = Review.new(params)
        @review.user_id = current_user.id
        if !@review.name.empty? && !@review.review.empty?
-            @review.save
+            @review.save 
           redirect '/makeups'
         else
             @makeup = Makeup.find(params[:makeup_id])

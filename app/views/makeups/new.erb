@@ -1,13 +1,13 @@
 <h1><i>Create a Review for <%=@makeup.name %></i></h1>
 <hr>
 <p><%= @error %></p>
-<p><i>The comfort level is from 1 - 5 ( 1 is being the lowest and 5 is being the highest)</i></p>
+<p><i>The comfort level is from 1 - 9 ( 1 is being the lowest and 9 is being the highest)</i></p>
 <form action="/makeups/<%=@makeup.id%>/reviews" method="post">
 <input type=hidden name="makeup_id" value=<%= @makeup.id%>>
     <label>Review Title</label>
     <input type="text" name="name">
     <label>Comfort</label>
-    <input type="text" name="rate">
+    <input type="text" name="rate" maxlength="1">
     <label>Review</label>  
     <textarea name="review"></textarea>
     <button type="submit">Add Review</button>

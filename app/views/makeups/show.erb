@@ -19,8 +19,8 @@
 <h5>Review Title: <%= r.name%></h5>
 <h5>Comfort: <%= r.rate%></h5>
 <h5><%= r.review%></h5>
+<p><i>Posted by: <%=r.user.username%>
 <% if r.user_id == session[:user_id]%>
 <a href="/makeups/<%=r.makeup_id%>/reviews/<%=r.id %>/edit">Edit Review</a>
-<p><i>Posted by: <%=r.user.username%>
     <%end%>
 <%end%>
